@@ -16,7 +16,7 @@ import {
 import { getProductCount, getProducts } from "@/lib/fetchers/productFetcher"
 import { Product } from "@/types/product"
 import { useRouter, useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 
 const Paginate = ({currentPage, totalPages}: {currentPage: number, totalPages: number}) => {
   let showPrev = currentPage - 1 > 0;
@@ -149,4 +149,12 @@ const Products = () => {
   )
 }
 
-export default Products
+const ProductsPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Products />
+    </Suspense>
+  )
+}
+
+export default ProductsPage
