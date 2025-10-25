@@ -16,7 +16,7 @@ const OrderRouteButton = ({ previous, next }: RouteButtonProps) => {
           <MoveLeft /> {previous.name}
         </Link>
       </Button>
-      <Button asChild variant="outline" className="dark:bg-blue-600 dark:hover:bg-blue-700">
+      <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white">
         <Link href={next.link}>
           {next.name} <MoveRight />
         </Link>

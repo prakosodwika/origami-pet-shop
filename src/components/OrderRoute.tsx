@@ -28,7 +28,7 @@ const OrderRoute = ({ route }: OrderRouteProps) => {
               className={cn(
                 "text-sm flex items-center border py-2 px-3 rounded-full gap-2 transition-all duration-300",
                 isActive
-                  ? "bg-blue-100 text-blue-500 border-blue-200 dark:bg-blue-950 dark:border-blue-600 dark:text-blue-600"
+                  ? "bg-blue-100 text-blue-500 border-blue-200 dark:bg-blue-950 dark:border-blue-950 dark:text-blue-500"
                   : "border-zinc-300 text-zinc-500"
               )}
             >
@@ -40,7 +40,7 @@ const OrderRoute = ({ route }: OrderRouteProps) => {
                 className={cn(
                   "w-12 h-0 border-t border-dashed transition-all duration-300",
                   idx < activeIndex
-                    ? "border-blue-400"
+                    ? "border-blue-400 dark:border-blue-950"
                     : "border-zinc-300 dark:border-zinc-600"
                 )}
               ></div>

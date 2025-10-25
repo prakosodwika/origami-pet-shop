@@ -54,7 +54,7 @@ const SpecialCard = ({ product }: ProductCardProps) => {
           </div>
           <SheetTrigger asChild className="cursor-pointer">
             <div className="w-3/4 aspect-auto">
-              <AspectRatio ratio={5 / 3}>
+              <AspectRatio ratio={1 / 1}>
                 <Image src={product.image_path} alt={product.name} className="object-cover" fill />
               </AspectRatio>
             </div>

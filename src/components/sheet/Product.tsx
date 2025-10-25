@@ -6,16 +6,14 @@ import { Badge } from "../ui/badge"
 import { ShoppingCart, Star, StarHalf } from "lucide-react"
 import { Skeleton } from "../ui/skeleton"
 import { Product } from "@/types/product"
+import { formatCurrency } from "@/lib/common"
 
 type ProductSheetContentProps = {
   product: Product
 }
 
 const ProductSheetContent = ({ product }: ProductSheetContentProps) => {
-  const discountPrice = new Intl.NumberFormat('us-DE', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  }).format(product.price - ((product.price * product.discount) / 100))
+  const discountPrice = product.price - ((product.price * product.discount) / 100)
 
   return (
     <SheetContent className="w-[500px] sm:max-w-[500px] font-nunito text-base font-normal">
@@ -28,7 +26,7 @@ const ProductSheetContent = ({ product }: ProductSheetContentProps) => {
             <Badge className="bg-red-600 items-center rounded-sm">SAVE {product.discount}%</Badge>
           )}
           <AspectRatio ratio={3/2}>
-            <Image src={product.image_path} alt={product.name} className="object-cover" fill/>
+            <Image src={product.image_path} alt={product.name} className="object-contain" fill/>
           </AspectRatio>
         </div>
         <h3 className="text-xl font-semibold">{product.name}</h3>
@@ -77,11 +75,11 @@ const ProductSheetContent = ({ product }: ProductSheetContentProps) => {
         <div className="flex items-center justify-end">
           {product.discount ? (
             <div className="flex gap-2 items-baseline">
-              <p className="font-light line-through text-muted-foreground">${product.price}</p>
-              <p className="font-semibold text-xl text-end">${discountPrice}</p>
+              <p className="font-light line-through text-muted-foreground">{formatCurrency(product.price)}</p>
+              <p className="font-semibold text-xl text-end">{formatCurrency(discountPrice)}</p>
             </div>
           ):(
-            <p className="font-semibold text-xl text-end">${product.price}</p>
+            <p className="font-semibold text-xl text-end">{formatCurrency(product.price)}</p>
           )}
         </div>
       </div>

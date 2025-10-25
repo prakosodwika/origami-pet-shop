@@ -78,7 +78,7 @@ const orderPlaced = () => {
             </Button>
           }
           {!loading && 
-            <Button asChild variant="outline" className="bg-blue-500 text-white">
+            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white">
               <Link href="/">
                 <ShoppingBag /> Continue Shopping
               </Link>
