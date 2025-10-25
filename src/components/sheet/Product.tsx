@@ -23,7 +23,7 @@ const ProductSheetContent = ({ product }: ProductSheetContentProps) => {
         <SheetTitle>Product Details</SheetTitle>
       </SheetHeader>
       <div className="grid overflow-y-auto gap-5 px-4">
-        <div className="w-full aspect-auto border-1 rounded-lg flex flex-col items-end p-2  bg-gray-50">
+        <div className="w-full aspect-auto border-1 rounded-lg flex flex-col items-end p-2 dark:bg-zinc-900  bg-gray-50">
           {product.discount > 0 && (
             <Badge className="bg-red-600 items-center rounded-sm">SAVE {product.discount}%</Badge>
           )}
@@ -87,7 +87,7 @@ const ProductSheetContent = ({ product }: ProductSheetContentProps) => {
       </div>
       <SheetFooter className="border-t">
         <div className="flex justify-between gap-2">
-          <Button className="flex-1 bg-blue-500 hover:bg-blue-600 text-white">
+          <Button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
             <ShoppingCart /> Add to cart
           </Button>
         </div>

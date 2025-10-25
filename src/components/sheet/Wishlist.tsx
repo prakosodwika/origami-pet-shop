@@ -23,7 +23,7 @@ const WishlistSheetContent = ({ wishlists }: WishlistSheetContentProps) => {
         ))}
       </div>
       <SheetFooter className="border-t">
-        <Button type="submit" variant="outline">Remove all</Button>
+        <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white">Remove all</Button>
       </SheetFooter>
     </SheetContent>
   )

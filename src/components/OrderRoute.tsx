@@ -28,7 +28,7 @@ const OrderRoute = ({ route }: OrderRouteProps) => {
               className={cn(
                 "text-sm flex items-center border py-2 px-3 rounded-full gap-2 transition-all duration-300",
                 isActive
-                  ? "bg-blue-100 text-blue-500 border-blue-200"
+                  ? "bg-blue-100 text-blue-500 border-blue-200 dark:bg-blue-950 dark:border-blue-600 dark:text-blue-600"
                   : "border-zinc-300 text-zinc-500"
               )}
             >

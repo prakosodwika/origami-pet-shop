@@ -16,8 +16,19 @@ interface ProductCardProps {
   }
 }
 
-const bgColors = ['bg-purple-50', 'bg-blue-50', 'bg-green-50', 'bg-red-50']
-const borderColors = ['border-purple-100', 'border-blue-100', 'border-green-100', 'border-red-100']
+const bgColors = [
+  'bg-purple-50 dark:bg-zinc-900',
+  'bg-blue-50 dark:bg-zinc-900',
+  'bg-green-50 dark:bg-zinc-900',
+  'bg-red-50 dark:bg-zinc-900',
+]
+
+const borderColors = [
+  'border-purple-100 dark:border-zinc-700',
+  'border-blue-100 dark:border-zinc-700',
+  'border-green-100 dark:border-zinc-700',
+  'border-red-100 dark:border-zinc-700',
+]
 
 const SpecialCard = ({ product }: ProductCardProps) => {
   return (
@@ -29,7 +40,7 @@ const SpecialCard = ({ product }: ProductCardProps) => {
         <CardContent className="flex flex-col gap-5 h-full justify-between items-center">
           <div className="flex flex-col gap-2 items-center">
             {product.discount > 0 && (
-              <Badge className="bg-red-600 items-center rounded-sm text-xs">
+              <Badge className="bg-red-500 text-white items-center rounded-sm text-xs">
                 SAVE {product.discount}%
               </Badge>
             )}
@@ -65,7 +76,7 @@ const SpecialJumboCard = ({ product }: ProductCardProps) => {
         <CardContent className="grid grid-cols-2 justify-between items-center h-full">
           <div className="flex flex-col gap-3">
             {product.discount > 0 && (
-              <Badge className="bg-red-600 items-center rounded-sm text-xs">
+              <Badge className="bg-red-500 text-white items-center rounded-sm text-xs">
                 SAVE {product.discount}%
               </Badge>
             )}

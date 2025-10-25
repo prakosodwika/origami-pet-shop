@@ -94,6 +94,7 @@ export type Database = {
           account_name: string,
           account_number: string,
           created_at: string,
+          logo_path: string
         }
       },
       transactions: {

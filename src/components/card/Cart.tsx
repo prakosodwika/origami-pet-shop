@@ -18,9 +18,9 @@ const CartCard = ({ cart }: CartCardProps) => {
   return (
     <Card className="p-0 overflow-hidden">
       <CardContent className="p-2 flex gap-3 w-full">
-        <div className="h-25 aspect-square items-center border-1 rounded-lg bg-gray-50 my-auto">
+        <div className="h-25 aspect-square items-center border-1 rounded-lg dark:bg-zinc-800 bg-gray-50 my-auto">
           <AspectRatio ratio={1/1}>
-            <Image src="/mammals/raccon.svg" alt="raccon" className="object-cover" fill/>
+            <Image src={cart.products.image_path} alt={cart.products.name} className="object-cover" fill/>
           </AspectRatio>
         </div>
 
@@ -29,7 +29,7 @@ const CartCard = ({ cart }: CartCardProps) => {
             <h6 className="font-semibold truncate">{cart.products.name} testing testing testing testing</h6>
             <div className="flex gap-2 items-center">
               <p className="text-sm font-light">SKU: {cart.products.sku}</p>
-              {cart.products.discount > 0 && (<Badge variant="destructive">SAVE {cart.products.discount}%</Badge>)}
+              {cart.products.discount > 0 && (<Badge className="bg-red-600 text-white ">SAVE {cart.products.discount}%</Badge>)}
             </div>
             <p className="text-sm font-light">Category: {cart.products.categories.name}</p>
           </div>

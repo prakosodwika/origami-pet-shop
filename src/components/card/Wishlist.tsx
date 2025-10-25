@@ -17,9 +17,9 @@ const WishlistCard = ({ wishlist }: WishlistCardProps) => {
   return (
     <Card className="p-0 overflow-hidden">
       <CardContent className="p-2 flex gap-3 w-full">
-        <div className="h-full aspect-square items-center border-1 rounded-lg bg-gray-50 my-auto">
+        <div className="h-full aspect-square items-center border-1 rounded-lg dark:bg-zinc-800 bg-gray-50 my-auto">
           <AspectRatio ratio={1 / 1}>
-            <Image src="/mammals/raccon.svg" alt="raccon" className="object-cover" fill />
+            <Image src={wishlist.products.image_path} alt={wishlist.products.name} className="object-cover" fill />
           </AspectRatio>
         </div>
 
@@ -35,14 +35,14 @@ const WishlistCard = ({ wishlist }: WishlistCardProps) => {
               </div>
             </div>
             <div>
-              {wishlist.products.discount > 0 && (<Badge variant="destructive" className="text-xs">SAVE {wishlist.products.discount}%</Badge>)}
+              {wishlist.products.discount > 0 && (<Badge className="text-xs bg-red-600 text-white">SAVE {wishlist.products.discount}%</Badge>)}
             </div>
           </div>
 
           <div className="flex justify-between items-end flex-wrap gap-2">
             <div className="flex gap-1 items-center">
-              <Badge className="text-xs bg-yellow-400">
-                <Star fill="white" />
+              <Badge className="text-xs bg-yellow-400 text-white">
+                <Star className="fill-white border-white"  />
                 {wishlist.products.rating}
               </Badge>
               <p className="text-sm font-light">Type: <span className="font-semibold">{wishlist.products.categories.name}</span></p>

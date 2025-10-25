@@ -29,7 +29,7 @@ const SummaryCard = ({
   const totalAmount = subTotal + shippingCost + vat;
 
   return (
-    <Card className="w-full max-w-sm bg-gray-50">
+    <Card className="w-full max-w-sm dark:bg-zinc-800 bg-gray-50">
       <CardHeader className="border-b">
         <CardTitle>Order Summary</CardTitle>
         <CardDescription>

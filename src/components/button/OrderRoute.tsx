@@ -11,12 +11,12 @@ type RouteButtonProps = {
 const OrderRouteButton = ({ previous, next }: RouteButtonProps) => {
   return (
     <div className="flex justify-end gap-5 items-center text-xs">
-      <Button asChild variant={previous.isCancel ? "destructive" : "outline"}>
+      <Button asChild variant={"outline"}>
         <Link href={previous.link}>
           <MoveLeft /> {previous.name}
         </Link>
       </Button>
-      <Button asChild variant="outline">
+      <Button asChild variant="outline" className="dark:bg-blue-600 dark:hover:bg-blue-700">
         <Link href={next.link}>
           {next.name} <MoveRight />
         </Link>

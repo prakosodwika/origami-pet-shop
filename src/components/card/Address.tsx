@@ -25,7 +25,7 @@ const AddressCard = ({ address }: AddressCardProps) => {
         <div className="flex justify-between items-center">
           <CardTitle>{address.name}</CardTitle>
           {address.index === 0 && !address.isFinal && (
-            <Badge className="bg-green-100 px-4 py-1 text-green-500">Ship here</Badge>
+            <Badge className="bg-green-100 dark:bg-green-950 px-4 py-1 text-green-500">Ship here</Badge>
           )}
         </div>
       </CardHeader>

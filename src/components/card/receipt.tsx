@@ -27,8 +27,8 @@ const ReceiptCard = ({
   children
 }: ReceiptCardProps) => {
   return (
-    <Card className="pt-0">
-      <CardHeader className="border-b bg-gray-50 !py-5 px-7">
+    <Card className="pt-0 ">
+      <CardHeader className="border-b !py-5 px-7">
         <div className="flex justify-between">
           <OrderInfo label="Order ID" value={order_id} />
           <OrderInfo label="Order placed" value={order_placed} />

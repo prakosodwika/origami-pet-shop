@@ -25,8 +25,8 @@ const CartSheetContent = ({ carts }: CartSheetContentProps) => {
       </div>
       <SheetFooter className="border-t">
         <div className="flex justify-between gap-2">
-          <Button type="submit" variant="destructive">Clear Cart</Button>
-          <Button  asChild className="flex-1" variant="outline">
+          <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white">Clear Cart</Button>
+          <Button  asChild className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
             <Link href="/checkout/order-summary" >Checkout</Link>
           </Button>
         </div>

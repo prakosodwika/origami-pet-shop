@@ -1,4 +1,3 @@
-import { TH4 } from "@/components/typography/th4"
 import { ReactNode } from "react"
 
 type OrderRouteHeaderProps = {

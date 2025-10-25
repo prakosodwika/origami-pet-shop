@@ -26,14 +26,14 @@ const PaymentMethodCard = ({ paymentMethod }: PaymentMethodCardProps) => {
         <div className="flex justify-between items-center">
           <CardTitle>{paymentMethod.bank_account}</CardTitle>
           {paymentMethod.index === 0 && !paymentMethod.isFinal && (
-            <Badge className="bg-green-100 px-4 py-1 text-green-500">Pay with this</Badge>
+            <Badge className="bg-green-100 dark:bg-green-950  px-4 py-1 text-green-500">Pay with this</Badge>
           )}
         </div>
       </CardHeader>
       <CardContent className="flex gap-2 px-4">
-        <div className="h-20 aspect-square items-center border-1 rounded-lg bg-gray-50 my-auto">
+        <div className="h-20 aspect-square items-center border-1 rounded-lg dark:bg-zinc-800 bg-gray-50 my-auto">
           <AspectRatio ratio={1/1}>
-            <Image src="/mammals/raccon.svg" alt="raccon" className="object-cover" fill />
+            <Image src={paymentMethod.logo_path} alt={paymentMethod.bank_account} className="object-cover" fill />
           </AspectRatio>
         </div>
         <div className="flex flex-col p-2">

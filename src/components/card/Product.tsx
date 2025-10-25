@@ -22,9 +22,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <Card className="p-1">
         <CardContent className="flex flex-col gap-5 p-1 h-full">
           <SheetTrigger asChild>
-            <AspectRatio ratio={16 / 10} className="bg-gray-50 rounded-md border-1 flex flex-col items-end p-2 cursor-pointer">
+            <AspectRatio ratio={16 / 10} className="dark:bg-zinc-800 bg-gray-50 rounded-md border-1 flex flex-col items-end p-2 cursor-pointer">
               {product.discount > 0 && (
-                <Badge className="bg-red-600 items-center rounded-sm text-xs">SAVE {product.discount}%</Badge>
+                <Badge className="bg-red-600 text-white items-center rounded-sm text-xs font-normal">SAVE {product.discount}%</Badge>
               )}
               <Image src={product.image_path} alt={product.name} className="object-contain" fill />
             </AspectRatio>
@@ -46,7 +46,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </div>
 
             <div className="flex items-center justify-between">
-              <Badge className="bg-yellow-500 items-center rounded-full"> <Star fill="white" /> {product.rating}</Badge>
+              <Badge className="bg-yellow-500 items-center rounded-full text-white">
+                <Star className="fill-white border-white" />{product.rating}</Badge>
               <Button size={'sm'} variant="outline" aria-label="Submit" className="sm">
                 <ShoppingCart /> Add
               </Button>

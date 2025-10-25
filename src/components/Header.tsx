@@ -15,6 +15,17 @@ import { Wishlist } from "@/types/wishlist";
 import { getWishlists } from "@/lib/fetchers/wishlistFetcher";
 import { getCarts } from "@/lib/fetchers/cartFetcher";
 
+import * as React from "react"
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 type SectionState<T> = {
   data: T;
   loading: boolean;
@@ -24,6 +35,8 @@ type SectionState<T> = {
 const Header = () => {
   const pathname = usePathname();
   const isCheckoutPage = pathname.startsWith("/checkout");
+  const { setTheme, theme, systemTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
   const [sections, setSections] = useState({
     carts: { data: [] as Cart[], loading: true } as SectionState<Cart[]>,
     wishlists: { data: [] as Wishlist[], loading: true } as SectionState<Wishlist[]>,
@@ -51,14 +64,26 @@ const Header = () => {
   
       fetchData("wishlists", getWishlists);
       fetchData("carts", getCarts);
+      setMounted(true);
     }, []);
 
   const { wishlists, carts } = sections;
 
+  if (!mounted) {
+    return (
+      <div style={{ width: 25, height: 25 }} />
+    );
+  }
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const logoSrc = currentTheme === "dark" 
+    ? "/logo/light.svg" 
+    : "/logo/dark.svg";
+
   return (
     <header className="flex justify-between">
       <Link href={'/'} className="flex gap-2 items-center">
-        <Image src="/logo/dark.svg" width={25} height={25} alt="logo" />
+        <Image src={logoSrc} width={25} height={25} alt="logo" />
         <p className="font-poppins font-medium text-xl ">Petify</p>
       </Link>
 
@@ -94,6 +119,27 @@ const Header = () => {
             </Sheet>
           </div>
         )}
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="icon">
+              <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+              <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => setTheme("light")}>
+              Light
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setTheme("dark")}>
+              Dark
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setTheme("system")}>
+              System
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <Avatar className="rounded-lg">
           <AvatarImage

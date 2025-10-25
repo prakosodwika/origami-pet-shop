@@ -23,10 +23,12 @@ const orderReceipt = async ({params}: OrderReceiptProps) => {
     <div className="container mx-auto flex flex-col gap-10 py-4 min-h-screen">
       <Header />
       <div className="w-2/4 flex flex-col gap-5 mx-auto">
-        <Card className="border-t-8 border-t-blue-200">
+        <Card className="relative overflow-hidden rounded-2xl">
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
           <CardContent className="flex flex-col gap-8">
             <div className="flex justify-center items-center gap-2 mt-5">
-              <Image src="/logo/dark.svg" alt="raccon" className="aspect-1/1 object-cover " width={30} height={30}/>
+              <Image src="/logo/dark.svg" alt="logo" width={30} height={30} className="aspect-1/1 object-cover dark:hidden" />
+              <Image src="/logo/light.svg" alt="logo" width={30} height={30} className="aspect-1/1 object-cover hidden dark:block" />
               <h4 className="text-xl font-bold">PETIFY</h4>
             </div>
 
@@ -39,7 +41,7 @@ const orderReceipt = async ({params}: OrderReceiptProps) => {
               {transactionLines.map((trxLine, i) => <OrderCard key={i} cart={trxLine} />)}
             </div>
 
-            <Card className="bg-gray-50">
+            <Card>
               <CardContent className="flex justify-between">
                 <div>
                   <p className="text-xs font-light">Order placed</p>
