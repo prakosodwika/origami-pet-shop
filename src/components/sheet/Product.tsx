@@ -23,7 +23,7 @@ const ProductSheetContent = ({ product }: ProductSheetContentProps) => {
       <div className="grid overflow-y-auto gap-5 px-4">
         <div className="w-full aspect-auto border-1 rounded-lg flex flex-col items-end p-2 dark:bg-zinc-900  bg-gray-50">
           {product.discount > 0 && (
-            <Badge className="bg-red-600 items-center rounded-sm">SAVE {product.discount}%</Badge>
+            <Badge className="bg-red-600 text-white items-center rounded-sm">SAVE {product.discount}%</Badge>
           )}
           <AspectRatio ratio={3/2}>
             <Image src={product.image_path} alt={product.name} className="object-contain" fill/>
